@@ -1,0 +1,23 @@
+  <svg xmlns="http://www.w3.org/2000/svg" width="310" height="310" fill="none" viewBox="0 0 310 310" style="width: 100%;">
+    <g class="stats-circle">
+      <path stroke="#3A5D66" stroke-width="10"
+        d="M155 5a149.999 149.999 0 0 1 129.707 225.34 150.003 150.003 0 0 1-181.625 65.389A150.001 150.001 0 0 1 59.386 39.423"
+        class="open-cirlce" />
+      <circle cx="155" cy="155" r="123.5" stroke="#D2E3EB" stroke-width="15" class="close-cirlce" />
+    </g>
+  </svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script> -->
+
+<script>
+  let path = document.querySelector('.stats-circle path');
+  let length = path.getTotalLength();
+
+  gsap.set(path, { strokeDasharray: length });
+  gsap.fromTo(path, 1, { strokeDashoffset: length }, { strokeDashoffset: 0, ease: "power1.inOut" });
+  gsap.from(".close-cirlce", {
+    opacity: 0,
+    duration: ".7",
+    delay: ".3",
+  });
+</script>
