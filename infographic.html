@@ -98,12 +98,12 @@
 
 <script>
   let tl = gsap.timeline(
-    // {
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top 25%",
-    //   }
-    // }
+    {
+      scrollTrigger: {
+        trigger: "#infographic",
+        start: "top 75%",
+      }
+    }
   )
 
   tl.from(".segment .rectangle", {
