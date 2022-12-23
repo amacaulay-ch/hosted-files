@@ -52,12 +52,12 @@
 </svg>
 <script>
   let tl = gsap.timeline(
-    // {
-    //   scrollTrigger: {
-    //     trigger: ".test",
-    //     start: "top 25%",
-    //   }
-    // }
+    {
+      scrollTrigger: {
+        trigger: "#graph-animate",
+        start: "top 75%",
+      }
+    }
   )
 
   tl.from(".scales .line", {
