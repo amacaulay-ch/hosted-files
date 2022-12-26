@@ -97,69 +97,71 @@
 </svg>
 
 <script>
-  let tl = gsap.timeline(
-    {
-      scrollTrigger: {
-        trigger: "#infographic",
-        start: "top 75%",
+  window.addEventListener('DOMContentLoaded', (event) => {
+    let tl = gsap.timeline(
+      {
+        scrollTrigger: {
+          trigger: "#infographic",
+          start: "top 75%",
+        }
       }
-    }
-  )
+    )
 
-  tl.from(".segment .rectangle", {
-    opacity: 0,
-    duration: ".3",
-    translateX: "-10px",
-    stagger: ".3"
+    tl.from(".segment .rectangle", {
+      opacity: 0,
+      duration: ".3",
+      translateX: "-10px",
+      stagger: ".3"
+    });
+    tl.from(".segment .label", {
+      opacity: 0,
+      duration: ".3",
+      stagger: ".3"
+    }, ">-0.5");
+    tl.from(".line", {
+      scaleX: 0,
+      transformOrigin: "left",
+      ease: "expo.inOut",
+      duration: "1",
+    }, ">-0.5");
+    tl.from(".segment-dots .dot-pre", {
+      scaleX: 0,
+      scaleY: 0,
+      transformOrigin: "center",
+      stagger: {
+        each: "0.1",
+      },
+      ease: "power1.inOut",
+      duration: ".25",
+    });
+    tl.from(".weekly-dots .dot", {
+      scaleX: 0,
+      scaleY: 0,
+      transformOrigin: "center",
+      stagger: {
+        each: "0.1",
+      },
+      ease: "power1.inOut",
+      duration: ".125",
+    });
+    tl.from(".segment-dots .dot", {
+      scaleX: 0,
+      scaleY: 0,
+      transformOrigin: "center",
+      stagger: {
+        each: "0.1",
+      },
+      ease: "power1.inOut",
+      duration: ".625",
+    });
+    tl.from(".labels .label .label", {
+      opacity: 0,
+      stagger: {
+        each: "0.2",
+      },
+      ease: "power1.inOut",
+      translateY: "16px",
+      duration: "1",
+    }, ">-2.5");
   });
-  tl.from(".segment .label", {
-    opacity: 0,
-    duration: ".3",
-    stagger: ".3"
-  }, ">-0.5");
-  tl.from(".line", {
-    scaleX: 0,
-    transformOrigin: "left",
-    ease: "expo.inOut",
-    duration: "1",
-  }, ">-0.5");
-  tl.from(".segment-dots .dot-pre", {
-    scaleX: 0,
-    scaleY: 0,
-    transformOrigin: "center",
-    stagger: {
-      each: "0.1",
-    },
-    ease: "power1.inOut",
-    duration: ".25",
-  });
-  tl.from(".weekly-dots .dot", {
-    scaleX: 0,
-    scaleY: 0,
-    transformOrigin: "center",
-    stagger: {
-      each: "0.1",
-    },
-    ease: "power1.inOut",
-    duration: ".125",
-  });
-  tl.from(".segment-dots .dot", {
-    scaleX: 0,
-    scaleY: 0,
-    transformOrigin: "center",
-    stagger: {
-      each: "0.1",
-    },
-    ease: "power1.inOut",
-    duration: ".625",
-  });
-  tl.from(".labels .label .label", {
-    opacity: 0,
-    stagger: {
-      each: "0.2",
-    },
-    ease: "power1.inOut",
-    translateY: "16px",
-    duration: "1",
-  }, ">-2.5");
 </script>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="310" fill="none" viewBox="0 0 310 310" style="width: 100%;">
+  <g class="stats-circle-89">
+    <path stroke="#3A5D66" stroke-width="10"
+      d="M155 5a149.999 149.999 0 0 1 129.707 225.34 150.003 150.003 0 0 1-181.625 65.389A150.001 150.001 0 0 1 59.386 39.423"
+      class="open-circle" />
+    <circle cx="155" cy="155" r="123.5" stroke="#D2E3EB" stroke-width="15" class="closed-circle-89" />
+  </g>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="310" fill="none" viewBox="0 0 310 310" style="width: 100%;">
+  <g class="stats-circle-95">
+    <path stroke="#5D8E9B" stroke-width="10" d="M155 5a150 150 0 1 1-46.353 7.342" class="open-circle" />
+    <circle cx="155" cy="155" r="123.5" stroke="#D2E3EB" stroke-width="15" class="closed-circle-95" />
+  </g>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="310" fill="none" viewBox="0 0 310 310" style="width: 100%;">
+  <g class="stats-circle-96">
+    <path stroke="#72B3B5" stroke-width="10" d="M155 5a150 150 0 1 1-37.303 4.713" class="open-circle"/>
+    <circle cx="155" cy="155" r="123.5" stroke="#D2E3EB" stroke-width="15" class="closed-circle-96"/>
+  </g>
+</svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+
+<script>
+  let tlCircles = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.circle-graph-img',
+      start: 'top 80%',
+    },
+  });
+
+  let path1 = document.querySelector('.stats-circle-89 path');
+  let length1 = path1.getTotalLength();
+  let path2 = document.querySelector('.stats-circle-95 path');
+  let length2 = path2.getTotalLength();
+  let path3 = document.querySelector('.stats-circle-96 path');
+  let length3 = path3.getTotalLength();
+
+  tlCircles.set(path1, { strokeDasharray: length1 });
+  tlCircles.set(path2, { strokeDasharray: length2 });
+  tlCircles.set(path3, { strokeDasharray: length3 });
+
+  tlCircles.fromTo(path1, 1, { strokeDashoffset: length1, opacity: 1 }, { strokeDashoffset: 0, ease: "power1.inOut" });
+  tlCircles.from(".closed-circle-89", {
+    opacity: 0,
+    duration: ".7",
+  }, ">-0.7");
+  tlCircles.fromTo(path2, 1, { strokeDashoffset: length2 }, { strokeDashoffset: 0, ease: "power1.inOut" }, ">-0.7");
+  tlCircles.from(".closed-circle-95", {
+    opacity: 0,
+    duration: ".7",
+  }, ">-0.7");
+  tlCircles.fromTo(path3, 1, { strokeDashoffset: length3 }, { strokeDashoffset: 0, ease: "power1.inOut" }, ">-0.7");
+  tlCircles.from(".closed-circle-96", {
+    opacity: 0,
+    duration: ".7",
+  }, ">-0.7");
+</script>
