@@ -51,60 +51,61 @@
   </g>
 </svg>
 <script>
-  let tl = gsap.timeline(
-    {
-      scrollTrigger: {
-        trigger: "#graph-animate",
-        start: "top 75%",
+  window.addEventListener('DOMContentLoaded', (event) => {
+    let tl = gsap.timeline(
+      {
+        scrollTrigger: {
+          trigger: "#graph-animate",
+          start: "top 75%",
+        }
       }
-    }
-  )
+    )
 
-  tl.from(".scales .line", {
-    scaleX: 0,
-    transformOrigin: "left",
-    stagger: {
-      each: 0.05,
-    },
-    ease: "power1.inOut",
-    duration: "1",
+    tl.from(".scales .line", {
+      scaleX: 0,
+      transformOrigin: "left",
+      stagger: {
+        each: 0.05,
+      },
+      ease: "power1.inOut",
+      duration: "1",
+    });
+    tl.from(".y-labels", {
+      opacity: 0,
+      duration: ".5",
+      translateX: "10px"
+    }, ">-0.7");
+    tl.from(".ch-iop-bar", {
+      scaleY: 0,
+      opacity: 0,
+      transformOrigin: "bottom",
+      duration: "1",
+      ease: "power1.inOut"
+    }, ">-0.7");
+    tl.from(".percent-91", {
+      opacity: 0,
+      duration: ".3",
+    });
+    tl.from(".avg-iop-bar", {
+      scaleY: 0,
+      opacity: 0,
+      transformOrigin: "bottom",
+      duration: "1",
+      ease: "power1.inOut"
+    }, ">-1");
+    tl.from(".percent-65", {
+      opacity: 0,
+      duration: ".3",
+    });
+    tl.from(".x-labels", {
+      opacity: 0,
+      duration: ".3",
+      translateY: "-10px"
+    }, ">-.2");
+    tl.from(".title", {
+      opacity: 0,
+      duration: ".3",
+      translateY: "10px"
+    }, ">-0.3");
   });
-  tl.from(".y-labels", {
-    opacity: 0,
-    duration: ".5",
-    translateX: "10px"
-  }, ">-0.7");
-  tl.from(".ch-iop-bar", {
-    scaleY: 0,
-    opacity: 0,
-    transformOrigin: "bottom",
-    duration: "1",
-    ease: "power1.inOut"
-  }, ">-0.7");
-  tl.from(".percent-91", {
-    opacity: 0,
-    duration: ".3",
-  });
-  tl.from(".avg-iop-bar", {
-    scaleY: 0,
-    opacity: 0,
-    transformOrigin: "bottom",
-    duration: "1",
-    ease: "power1.inOut"
-  }, ">-1");
-  tl.from(".percent-65", {
-    opacity: 0,
-    duration: ".3",
-  });
-  tl.from(".x-labels", {
-    opacity: 0,
-    duration: ".3",
-    translateY: "-10px"
-  }, ">-.2");
-  tl.from(".title", {
-    opacity: 0,
-    duration: ".3",
-    translateY: "10px"
-  }, ">-0.3");
-
 </script>
