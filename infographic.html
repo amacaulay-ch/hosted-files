@@ -95,36 +95,36 @@
     </linearGradient>
   </defs>
 </svg>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 <script>
-  window.addEventListener('DOMContentLoaded', (event) => {
-    let tl = gsap.timeline(
-      {
-        scrollTrigger: {
-          trigger: "#infographic",
-          start: "top 80%",
-        }
-      }
-    )
 
-    tl.from(".segment .rectangle", {
+  const animateGraph = () => {
+    let infographic = gsap.timeline({
+      // scrollTrigger: {
+      //   trigger: "#infographic",
+      //   start: "top 80%",
+      // }
+    })
+
+    infographic.from(".segment .rectangle", {
       opacity: 0,
       duration: ".3",
       translateX: "-10px",
       stagger: ".3"
     });
-    tl.from(".segment .label", {
+    infographic.from(".segment .label", {
       opacity: 0,
       duration: ".3",
       stagger: ".3"
     }, ">-0.5");
-    tl.from(".line", {
+    infographic.from(".line", {
       scaleX: 0,
       transformOrigin: "left",
       ease: "expo.inOut",
       duration: "1",
     }, ">-0.5");
-    tl.from(".segment-dots .dot-pre", {
+    infographic.from(".segment-dots .dot-pre", {
       scaleX: 0,
       scaleY: 0,
       transformOrigin: "center",
@@ -134,7 +134,7 @@
       ease: "power1.inOut",
       duration: ".25",
     });
-    tl.from(".weekly-dots .dot", {
+    infographic.from(".weekly-dots .dot", {
       scaleX: 0,
       scaleY: 0,
       transformOrigin: "center",
@@ -144,7 +144,7 @@
       ease: "power1.inOut",
       duration: ".125",
     });
-    tl.from(".segment-dots .dot", {
+    infographic.from(".segment-dots .dot", {
       scaleX: 0,
       scaleY: 0,
       transformOrigin: "center",
@@ -154,7 +154,7 @@
       ease: "power1.inOut",
       duration: ".625",
     });
-    tl.from(".labels .label .label", {
+    infographic.from(".labels .label .label", {
       opacity: 0,
       stagger: {
         each: "0.2",
@@ -163,5 +163,13 @@
       translateY: "16px",
       duration: "1",
     }, ">-2.5");
-  });
+  }
+
+  if (document.readyState !== 'loading') {
+    animateGraph();
+  } else {
+    document.addEventListener('DOMContentLoaded', function () {
+      animateGraph();
+    });
+  }
 </script>

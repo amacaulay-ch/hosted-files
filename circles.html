@@ -39,9 +39,9 @@
   let path3 = document.querySelector('.stats-circle-96 path');
   let length3 = path3.getTotalLength();
 
-  tlCircles.set(path1, { strokeDasharray: length1 });
-  tlCircles.set(path2, { strokeDasharray: length2 });
-  tlCircles.set(path3, { strokeDasharray: length3 });
+  gsap.set(path1, { strokeDasharray: length1 });
+  gsap.set(path2, { strokeDasharray: length2 });
+  gsap.set(path3, { strokeDasharray: length3 });
 
   tlCircles.fromTo(path1, 1, { strokeDashoffset: length1, opacity: 1 }, { strokeDashoffset: 0, ease: "power1.inOut" });
   tlCircles.from(".closed-circle-89", {

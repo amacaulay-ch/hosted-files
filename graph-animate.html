@@ -52,7 +52,7 @@
 </svg>
 <script>
   window.addEventListener('DOMContentLoaded', (event) => {
-    let tl = gsap.timeline(
+    let graphAnimate = gsap.timeline(
       {
         scrollTrigger: {
           trigger: "#graph-animate",
@@ -61,7 +61,7 @@
       }
     )
 
-    tl.from(".scales .line", {
+    graphAnimate.from(".scales .line", {
       scaleX: 0,
       transformOrigin: "left",
       stagger: {
@@ -70,39 +70,39 @@
       ease: "power1.inOut",
       duration: "1",
     });
-    tl.from(".y-labels", {
+    graphAnimate.from(".y-labels", {
       opacity: 0,
       duration: ".5",
       translateX: "10px"
     }, ">-0.7");
-    tl.from(".ch-iop-bar", {
+    graphAnimate.from(".ch-iop-bar", {
       scaleY: 0,
       opacity: 0,
       transformOrigin: "bottom",
       duration: "1",
       ease: "power1.inOut"
     }, ">-0.7");
-    tl.from(".percent-91", {
+    graphAnimate.from(".percent-91", {
       opacity: 0,
       duration: ".3",
     });
-    tl.from(".avg-iop-bar", {
+    graphAnimate.from(".avg-iop-bar", {
       scaleY: 0,
       opacity: 0,
       transformOrigin: "bottom",
       duration: "1",
       ease: "power1.inOut"
     }, ">-1");
-    tl.from(".percent-65", {
+    graphAnimate.from(".percent-65", {
       opacity: 0,
       duration: ".3",
     });
-    tl.from(".x-labels", {
+    graphAnimate.from(".x-labels", {
       opacity: 0,
       duration: ".3",
       translateY: "-10px"
     }, ">-.2");
-    tl.from(".title", {
+    graphAnimate.from(".title", {
       opacity: 0,
       duration: ".3",
       translateY: "10px"
