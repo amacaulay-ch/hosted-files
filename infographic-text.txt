@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1042" height="146" fill="none" viewBox="0 0 1042 146">
+<svg xmlns="http://www.w3.org/2000/svg" width="1042" height="146" fill="none" viewBox="0 0 1042 146" style="width: 100%;">
   <g class="inphographic">
     <g class="segment">
       <rect width="132" height="46" x="41" fill="#1D225F" class="rectangle" rx="10" />
@@ -71,79 +71,3 @@
     </linearGradient>
   </defs>
 </svg>
-
-<script>
-  const animateInfographic = () => {
-    let infographic = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#infographic",
-        start: "top 80%",
-      }
-    })
-
-    infographic.from(".segment .rectangle", {
-      opacity: 0,
-      duration: ".3",
-      translateX: "-10px",
-      stagger: ".3"
-    });
-    infographic.from(".segment .label", {
-      opacity: 0,
-      duration: ".3",
-      stagger: ".3"
-    }, ">-0.5");
-    infographic.from(".line", {
-      scaleX: 0,
-      transformOrigin: "left",
-      ease: "expo.inOut",
-      duration: "1",
-    }, ">-0.5");
-    infographic.from(".segment-dots .dot-pre", {
-      scaleX: 0,
-      scaleY: 0,
-      transformOrigin: "center",
-      stagger: {
-        each: "0.1",
-      },
-      ease: "power1.inOut",
-      duration: ".25",
-    });
-    infographic.from(".weekly-dots .dot", {
-      scaleX: 0,
-      scaleY: 0,
-      transformOrigin: "center",
-      stagger: {
-        each: "0.1",
-      },
-      ease: "power1.inOut",
-      duration: ".125",
-    });
-    infographic.from(".segment-dots .dot", {
-      scaleX: 0,
-      scaleY: 0,
-      transformOrigin: "center",
-      stagger: {
-        each: "0.1",
-      },
-      ease: "power1.inOut",
-      duration: ".625",
-    });
-    infographic.from(".labels .label .label", {
-      opacity: 0,
-      stagger: {
-        each: "0.2",
-      },
-      ease: "power1.inOut",
-      translateY: "16px",
-      duration: "1",
-    }, ">-2.5");
-  }
-  
-  if (document.readyState !== 'loading') {
-    animateInfographic();
-  } else {
-    document.addEventListener('DOMContentLoaded', function() {
-      animateInfographic();
-    });
-  }
-</script>
